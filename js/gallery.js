@@ -72,7 +72,7 @@ function createGallery(arrObjPicture) {
     // console.log("Create galery");
     return arrObjPicture.map(item =>
         `<li class="gallery-item">
-  <a class="gallery-link" href="${DataTransferItemList.original}">
+  <a class="gallery-link" href="${item.original}">
     <img
       class="gallery-image"
       src="${item.preview}"
@@ -105,14 +105,14 @@ function selectPicture(event) {
         event.preventDefault();
        // console.log(event.target.dataset.source);
         const instance = basicLightbox.create(`
-    <div >
+    
        
             <img class="modal"
       src="${event.target.dataset.source}"
       alt="${event.target.description}"
     />
        
-    </div>
+    
 `)
 
 instance.show()
