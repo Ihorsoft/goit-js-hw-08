@@ -64,10 +64,12 @@ const images = [
   },
 ];
 
-//_____________
+
+
+//_____create gallery________
 function createGallery(arrObjPicture) {
     // const items = [];
-    console.log("Create galery");
+    // console.log("Create galery");
     return arrObjPicture.map(item =>
         `<li class="gallery-item">
   <a class="gallery-link" href="${DataTransferItemList.original}">
@@ -80,25 +82,42 @@ function createGallery(arrObjPicture) {
   </a>
 </li>`).join("");
 }
-//___________
+//____end create gallery_______
 
-console.log(createGallery(images));
+
+
+// console.log(createGallery(images));
 
 const gallery = document.querySelector(".gallery");
 gallery.insertAdjacentHTML("beforeend", createGallery(images));
 
 gallery.addEventListener("click", selectPicture);
 
-//____________________
+
+
+//________create modal window____________
+
 function selectPicture(event) {
     if (event.target.nodeName !== "IMG") {
         return;
     }
     else {
         event.preventDefault();
-        console.log(event.target.dataset.source);
+       // console.log(event.target.dataset.source);
+        const instance = basicLightbox.create(`
+    <div >
+       
+            <img class="modal"
+      src="${event.target.dataset.source}"
+      alt="${event.target.description}"
+    />
+       
+    </div>
+`)
+
+instance.show()
 
     };
 
 }
-//___________________
+//_______end create modal window____________

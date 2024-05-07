@@ -1,3 +1,7 @@
+li {
+    list-style-type: none;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -11,4 +15,9 @@
 
 .gallery-item {
 
+}
+
+.modal {
+    width: 1112px;
+    height: 640px;
 }
